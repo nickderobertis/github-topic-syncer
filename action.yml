@@ -3,4 +3,8 @@ description: 'Sync Github Topics from a Github Action'
 runs:
   using: node16
   main: "dist/index.js"
-  
+inputs:
+  topics:
+    description: 'Comma-separated topics to sync to Github'
+    required: true
+

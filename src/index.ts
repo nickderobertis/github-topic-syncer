@@ -2,7 +2,8 @@ import * as core from "@actions/core";
 
 async function run(): Promise<void> {
   try {
-    console.log(`Hello world!`);
+    const topicsStr = core.getInput("topics");
+    console.log(`Hello world with topics: ${topicsStr}`);
   } catch (error) {
     if (error instanceof Error) {
       core.setFailed(error.message);
