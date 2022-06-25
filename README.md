@@ -7,24 +7,24 @@ when the action is executed.
 
 ## Inputs
 
-## `topics`
+### `topics`
 
 A space-separated list of topics to sync. Topics can only contain lower-case letters,
 numbers, and hyphens.
 
-### Examples
+#### Examples
 
 ```yaml
 with:
   topics: "web-development python"
 ```
 
-## `token`
+### `token`
 
 A Github personal access token with the `repo` scope. Typically this is stored
 in repository secrets to provide to the action:
 
-### Examples
+#### Examples
 
 ```yaml
 with:
