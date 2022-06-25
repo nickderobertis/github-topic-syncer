@@ -9141,39 +9141,59 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.syncGithubTopics = void 0;
 const github = __importStar(__nccwpck_require__(5438));
+const token_1 = __nccwpck_require__(5697);
 function syncGithubTopics(topics) {
     return __awaiter(this, void 0, void 0, function* () {
-        const token = getTokenFromEnv();
+        const token = (0, token_1.getTokenFromInputs)();
         const octokit = github.getOctokit(token);
-        const repoInfo = getRepoInfoFromEnv();
-        const result = yield octokit.request("PATCH /repos/:owner/:repo/topics", Object.assign({ topics: topics }, repoInfo));
+        const result = yield octokit.request("PATCH /repos/:owner/:repo/topics", Object.assign({ topics: topics }, github.context.repo));
         if (result.status !== 200) {
             throw new Error(`Failed to update topics, got ${JSON.stringify(result)}`);
         }
     });
 }
 exports.syncGithubTopics = syncGithubTopics;
-function getTokenFromEnv() {
-    const token = process.env.GITHUB_TOKEN;
-    if (!token) {
-        throw new Error("GITHUB_TOKEN is not set");
+
+
+/***/ }),
+
+/***/ 5697:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
     }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getTokenFromInputs = void 0;
+const core = __importStar(__nccwpck_require__(2186));
+const tokenInput = "token";
+function getTokenFromInputs() {
+    const token = core.getInput(tokenInput);
     return token;
 }
-function getRepoInfoFromEnv() {
-    const repoWithOwner = process.env.GITHUB_REPOSITORY;
-    if (!repoWithOwner) {
-        throw new Error("GITHUB_REPOSITORY is not set");
-    }
-    const repoParts = repoWithOwner.split("/");
-    if (repoParts.length !== 2) {
-        throw new Error(`GITHUB_REPOSITORY is invalid, got ${process.env.GITHUB_REPOSITORY}`);
-    }
-    return {
-        owner: repoParts[0],
-        repo: repoParts[1],
-    };
-}
+exports.getTokenFromInputs = getTokenFromInputs;
 
 
 /***/ }),
