@@ -9147,7 +9147,7 @@ function syncGithubTopics(topics) {
     return __awaiter(this, void 0, void 0, function* () {
         const token = (0, token_1.getTokenFromInputs)();
         const octokit = github.getOctokit(token);
-        const result = yield octokit.request("PATCH /repos/:owner/:repo/topics", Object.assign({ topics: topics }, github.context.repo));
+        const result = yield octokit.request("PUT /repos/:owner/:repo/topics", Object.assign({ names: topics }, github.context.repo));
         if (result.status !== 200) {
             throw new Error(`Failed to update topics, got ${JSON.stringify(result)}`);
         }
