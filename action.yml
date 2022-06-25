@@ -1,5 +1,8 @@
 name: 'Github Topic Syncer'
 description: 'Sync Github Topics from a Github Action'
+branding:
+  icon: refresh-cw
+  color: gray-dark
 runs:
   using: node16
   main: "dist/index.js"
