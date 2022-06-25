@@ -1,9 +1,10 @@
 import * as core from "@actions/core";
+import { getTopicsFromInput } from "./topics";
 
 async function run(): Promise<void> {
   try {
-    const topicsStr = core.getInput("topics");
-    console.log(`Hello world with topics: ${topicsStr}`);
+    const topics = getTopicsFromInput();
+    console.log(`Hello world with topics: ${topics}`);
   } catch (error) {
     if (error instanceof Error) {
       core.setFailed(error.message);
