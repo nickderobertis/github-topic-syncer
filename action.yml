@@ -10,5 +10,4 @@ inputs:
   token:
     description: 'Github token'
     required: true
-    default: ${{ github.token }}
 

@@ -14,3 +14,4 @@ jobs:
         uses: ./ # Uses an action in the root directory
         with:
           topics: "topic 1, topic 2"
+          token: ${{ secrets.gh_token }}
