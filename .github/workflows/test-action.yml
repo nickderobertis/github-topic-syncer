@@ -13,5 +13,5 @@ jobs:
       - name: Test Action
         uses: ./ # Uses an action in the root directory
         with:
-          topics: "Github-Actions Github-Topics Sync"
+          topics: "github-actions github-topics sync"
           token: ${{ secrets.gh_token }}
