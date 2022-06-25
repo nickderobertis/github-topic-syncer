@@ -5,7 +5,7 @@ runs:
   main: "dist/index.js"
 inputs:
   topics:
-    description: 'Comma-separated topics to sync to Github'
+    description: 'Space-separated topics to sync to Github'
     required: true
   token:
     description: 'Github token'

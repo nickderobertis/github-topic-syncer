@@ -9232,7 +9232,7 @@ exports.getTopicsFromInput = void 0;
 const core = __importStar(__nccwpck_require__(2186));
 const topicsInput = "topics";
 function parseTopicsStr(str) {
-    return str.split(",").map((s) => s.trim());
+    return str.split(" ").map((s) => s.trim());
 }
 function getTopicsFromInput() {
     const topicsStr = core.getInput(topicsInput);
