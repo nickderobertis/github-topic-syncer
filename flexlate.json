@@ -14,7 +14,16 @@
   "applied_templates": [
     {
       "name": "copier-github-actions-semantic-release",
-      "data": {},
+      "data": {
+        "repo_name": "github-topic-syncer",
+        "full_name": "Github Topic Syncer",
+        "action_type": "typescript",
+        "repo_username": "nickderobertis",
+        "short_description": "Sync Github Topics from a Github Action",
+        "package_author": "Nick DeRobertis",
+        "author_email": "derobertis.nick@gmail.com",
+        "main_branch_name": "main"
+      },
       "version": "833564c68a1d83f7faa738879c625b478ec91c14",
       "add_mode": "local",
       "root": "."

@@ -1,0 +1,6 @@
+name: 'Github Topic Syncer'
+description: 'Sync Github Topics from a Github Action'
+runs:
+  using: node16
+  main: "dist/index.js"
+  
