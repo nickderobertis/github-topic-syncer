@@ -11,5 +11,13 @@
       "render_relative_root_in_template": "output"
     }
   ],
-  "applied_templates": []
+  "applied_templates": [
+    {
+      "name": "copier-github-actions-semantic-release",
+      "data": {},
+      "version": "833564c68a1d83f7faa738879c625b478ec91c14",
+      "add_mode": "local",
+      "root": "."
+    }
+  ]
 }
