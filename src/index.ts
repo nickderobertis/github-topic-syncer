@@ -9,6 +9,7 @@ async function run(): Promise<void> {
     console.log(`Successfully synced: ${topics}`);
   } catch (error) {
     if (error instanceof Error) {
+      core.setFailed(error.message);
       throw error;
     } else {
       core.setFailed(JSON.stringify(error));
